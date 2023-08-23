@@ -1,0 +1,12 @@
+{
+  "name": "exemplo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --testEnvironment=node --watchAll --verbose --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

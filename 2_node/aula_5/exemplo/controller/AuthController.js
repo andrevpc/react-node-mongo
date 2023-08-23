@@ -24,34 +24,37 @@ class PersonController {
         }
     }
     static async login(req, res) {
-    //     const { email, password } = req.body
+        const { email, password } = req.body
 
-    //     if(!email)
-    //         return res.status(422).json({ message: "O email é obrigatório" })
-    //     if(!password)
-    //         return res.status(422).json({ message: "A senha é obrigatório" })
+        if(!email)
+            return res.status(422).json({ message: "O email é obrigatório" })
+        if(!password)
+            return res.status(422).json({ message: "A senha é obrigatório" })
 
-    //     const user = await User.findOne({ email: email })
+        const user = await User.findOne({ email })
 
-    //     if(!user)
-    //         return res.status(422).json({ message: "Usuário/Senha inválido" })
+        if(!user)
+            return res.status(422).json({ message: "Usuário/Senha inválido" })
 
-    //     try {
-    //         const secret = process.env.SECRET
-    //         const token = jwt.sign(
-    //             {
-    //                 id: user._id,
-    //             },
-    //             secret,
-    //             {
-    //                 expiresIn: '2 days'
-    //             }
-    //         );
-    //         return res.status(200).send({ token: token })
-    //     } catch (error) {
-    //         console.log(error)
-    //         return res.status(500).send({ message: "Something failed" })
-    //     }
+        if(!await bcrypt.compare(password, user.password))
+            return res.status(422).json({ message: "Usuário/Senha inválido" })
+
+        try {
+            const secret = process.env.SECRET
+            const token = jwt.sign(
+                {
+                    id: user._id,
+                },
+                secret,
+                {
+                    expiresIn: '2 days'
+                }
+            );
+            return res.status(200).send({ token: token })
+        } catch (error) {
+            console.log(error)
+            return res.status(500).send({ message: "Something failed" })
+        }
     }
 }
 

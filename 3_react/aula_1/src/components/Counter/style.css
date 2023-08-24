@@ -1,0 +1,22 @@
+button {
+    width: 50px;
+}
+
+#counter {
+    margin-left: 10px;
+}
+
+#total {
+    display: flex;
+    align-items: center;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.input {
+    height: 15px;
+    width: 50px;
+}

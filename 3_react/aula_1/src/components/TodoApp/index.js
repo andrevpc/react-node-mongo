@@ -30,7 +30,7 @@ export default function TodoApp() {
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{ width: "fit-content" }}>
       <form>
         <h1>Lista de tarefas</h1>
         <input onChange={setTodo} value={todo} />

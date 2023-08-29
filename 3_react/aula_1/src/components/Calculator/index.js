@@ -39,7 +39,7 @@ export default function Calculator() {
                 <input type='number' class='input' onChange={(e) => setNum2(e.target.value)} />
 
                 <a> é {numR}</a>
-                <p>Soma: {soma}</p>
+                {/* <p>Soma: {soma}</p> */}
             </div>
         </div>
     )

@@ -4,9 +4,9 @@ import Numbers from '../../components/Numbers'
 export default function CounterPage() {
     return (
         <>
-            <NewCounter />
-            <Numbers />
+            <NewCounter>
+                <Numbers />
+            </NewCounter>
         </>
     )
-
 }

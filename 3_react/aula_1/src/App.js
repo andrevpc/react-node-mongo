@@ -25,29 +25,40 @@ import ClassesPage from './pages/ClassesPage'
 //#region aula 5
 import { CounterProvider } from './context/counter';
 import CounterPage from './pages/CounterPage'
+
+//#region desafio
+import { StatementProvider } from './context/statement';
+import StatementPage from './pages/StatementPage'
+import AddPayment from './components/AddPayment';
+//#endregion
+
 //#endregion
 
 function App() {
   return (
     <>
       <CounterProvider>
-        <NavBar />
-        <Routes>
-          <Route path='/counter' element={<Counter />} />
-          <Route path='/calculator' element={<Calculator />} />
-          <Route path='/inputs' element={<Inputs />} />
-          <Route path='/page' element={<PageNameChange />} />
-          <Route path='/conditional' element={<ConditionalRender />} />
-          <Route path='/saas' element={<UsingSass />} />
-          <Route path='/header' element={<HeaderSass />} />
-          <Route path='/useCounter' element={<UseCounter />} />
-          <Route path='/todo' element={<TodoApp />} />
-          <Route path='/aulas' element={<ClassesPage />} />
-          <Route path='/' element={<HomePage />} />
-          <Route path='/sobre' element={<AboutPage />} />
-          <Route path='*' element={<NotFoundPage />} />
-          <Route path='/counter-page' element={<CounterPage/>} />
-        </Routes>
+        <StatementProvider>
+          <NavBar />
+          <Routes>
+            <Route path='/counter' element={<Counter />} />
+            <Route path='/calculator' element={<Calculator />} />
+            <Route path='/inputs' element={<Inputs />} />
+            <Route path='/page' element={<PageNameChange />} />
+            <Route path='/conditional' element={<ConditionalRender />} />
+            <Route path='/saas' element={<UsingSass />} />
+            <Route path='/header' element={<HeaderSass />} />
+            <Route path='/useCounter' element={<UseCounter />} />
+            <Route path='/todo' element={<TodoApp />} />
+            <Route path='/aulas' element={<ClassesPage />} />
+            <Route path='/' element={<HomePage />} />
+            <Route path='/sobre' element={<AboutPage />} />
+            <Route path='*' element={<NotFoundPage />} />
+            <Route path='/counter-page' element={<CounterPage />} />
+            <Route path='/extrato' element={<StatementPage />} />
+            <Route path='/add-payment' element={<AddPayment />} />
+          </Routes>
+        </StatementProvider>
       </CounterProvider>
     </>
   );

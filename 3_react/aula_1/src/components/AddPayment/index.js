@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { StatementContext } from "../../context/statement";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,15 +8,26 @@ import useBind from "../../hooks/useBind";
 export default function AddPayment() {
     const { addPayment } = useContext(StatementContext)
     const [value, bindValue, resetValue] = useBind('');
-    const [wallet, bindWallet, resetWallet] = useBind('');
+    const [wallet, bindWallet, resetWallet] = useBind();
+    const [date, bindDate, resetDate] = useBind(new Date());
 
     const resetAll = () => {
         resetValue()
         resetWallet()
+        resetDate()
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+    }
+
+    const submit = () => {
+        addPayment({
+            Wallet: wallet,
+            Date: date,
+            Value: value
+        })
+        resetAll()
     }
 
 
@@ -27,14 +38,13 @@ export default function AddPayment() {
             </InputGroup>
             <InputGroup className="mb-3">
                 <InputGroup.Text>$</InputGroup.Text>
-                <Form.Control  {...bindValue} />
+                <Form.Control placeholder="Valor da tranferência"  {...bindValue} />
                 <InputGroup.Text>.00</InputGroup.Text>
             </InputGroup>
             <Form.Group controlId="dob">
-                <Form.Label>Select Date</Form.Label>
-                <Form.Control type="date" name="dob" placeholder="Date of Birth" />
+                <Form.Control placeholder="Data da transação" {...bindDate} type="date" name="dob" />
             </Form.Group>
-            <Button type="submit">submit</Button>
+            <Button type="submit" onClick={() => submit()}>submit</Button>
             <Button type="button" onClick={() => resetAll()}>reset</Button>
         </Form>
 

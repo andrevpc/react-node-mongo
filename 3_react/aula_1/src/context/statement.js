@@ -3,13 +3,7 @@ export const StatementContext = React.createContext();
 StatementContext.displayName = 'Statement';
 
 export const StatementProvider = ({ children }) => {
-    const [statementList, setStatementList] = useState([
-        {
-            Wallet: "Carteira",
-            Date: new Date().toLocaleString(),
-            Value: 10
-        }
-    ]);
+    const [statementList, setStatementList] = useState([]);
     function addPayment(statement) {
         setStatementList([
             ...statementList, statement

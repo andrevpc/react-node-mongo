@@ -16,6 +16,9 @@ export default function Statement() {
             )
         })
     }
+
+    const sum = statementList.reduce((partialSum, a) => partialSum + +a.Value, 0);
+
     return (
         <table id={ Styles.table }>
             <thead>
@@ -27,6 +30,11 @@ export default function Statement() {
             </thead>
             <tbody>
                 <RenderList />
+                <tr>
+                    <td id={ Styles.td }>Total</td>
+                    <td id={ Styles.td }></td>
+                    <td id={ Styles.td }>{sum}</td>
+                </tr>
             </tbody>
         </table>
     )

@@ -29,11 +29,18 @@ import CounterPage from "./pages/CounterPage";
 //#region desafio
 import { StatementProvider } from "./context/statement";
 import StatementPage from "./pages/StatementPage";
-import AddPayment from "./components/AddPayment";
 import AddPaymentPage from "./pages/AddPaymentPage";
 import { DarkModeProvider } from "./context/darkMode";
 //#endregion
 
+//#endregion
+
+//#region aula 6
+import ReqPage from "./pages/ReqPage";
+import MusicForm from "./components/MusicForm";
+import APIReq from"./components/APIReq";
+
+// https://www.npmjs.com/package/classnames
 //#endregion
 
 function App() {
@@ -60,6 +67,9 @@ function App() {
               <Route path="/counter-page" element={<CounterPage />} />
               <Route path="/extrato" element={<StatementPage />} />
               <Route path="/adicionarPagamento" element={<AddPaymentPage />} />
+              <Route path="req" element={<ReqPage />} />
+              <Route path="music" element={<MusicForm />} />
+              <Route path="api" element={<APIReq />} />
             </Routes>
           </DarkModeProvider>
         </StatementProvider>

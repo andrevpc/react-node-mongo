@@ -8,7 +8,8 @@ function useDark(defaultValue, defaultValue2) {
     const { isDarkMode, darkMode } = useContext(DarkModeContext)
     
     const dark = {
-        bg: '' + (isDarkMode ? value : value2)
+        bg: '' + (isDarkMode ? value : value2),
+        variant: '' + (isDarkMode ? value : value2)
     }
 
     return [dark, darkMode]

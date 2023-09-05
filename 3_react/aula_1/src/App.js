@@ -39,6 +39,7 @@ import { DarkModeProvider } from "./context/darkMode";
 import ReqPage from "./pages/ReqPage";
 import MusicForm from "./components/MusicForm";
 import APIReq from"./components/APIReq";
+import APIItem from './components/APIItem'
 
 // https://www.npmjs.com/package/classnames
 //#endregion
@@ -70,6 +71,7 @@ function App() {
               <Route path="req" element={<ReqPage />} />
               <Route path="music" element={<MusicForm />} />
               <Route path="api" element={<APIReq />} />
+              <Route path="api/:country" element={<APIItem />} />
             </Routes>
           </DarkModeProvider>
         </StatementProvider>

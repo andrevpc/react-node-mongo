@@ -26,17 +26,17 @@ export default function ReqPage() {
     }
 
     const RenderList = () => {
-        return countries.map(countries => {
+        return countries.map(country => {
             return (
-                <Col style={{ display: countries.coatOfArms.svg ? '' : 'none' }} id={Styles.colimg} md={2} sm={6} xs={12}>
+                <Col style={{ display: country.coatOfArms.svg ? '' : 'none' }} id={Styles.colimg} md={2} sm={6} xs={12}>
                     <Card style={{ margin: "20px", width: '15rem', height: '19rem' }}>
-                        <Card.Img style={{ maxWidth: "15rem", maxHeight: "15rem" }} variant="top" src={countries.flags.svg} />
+                        <Card.Img style={{ maxWidth: "15rem", maxHeight: "15rem" }} variant="top" src={country.flags.svg} />
                         <Card.Body>
                         </Card.Body>
                         <div style={{ margin: '10px' }}>
-                            <Card.Title>{countries.name.common}</Card.Title>
+                            <Card.Title>{country.name.common}</Card.Title>
                             <Button variant={isDarkMode ? 'dark' : 'primary'} style={{ width: '10rem' }}
-                            onClick={() => (navigate(countries.name.common))}
+                            onClick={() => (navigate(country.name.common))}
                             >Go somewhere</Button>
                         </div>
                     </Card>

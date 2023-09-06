@@ -16,7 +16,11 @@ export default function ClassesPage() {
             <p></p>
             <a>Aula 5: </a>
             <NavLink to="/counter-page">Counter Page</NavLink>
-
+            <p></p>
+            <a>Aula 6:</a>
+            <NavLink to="/req">Request</NavLink>
+            <NavLink to="/music">Music Forms</NavLink>
+            <NavLink to="/api">API Paises</NavLink>
         </>
     )
 }

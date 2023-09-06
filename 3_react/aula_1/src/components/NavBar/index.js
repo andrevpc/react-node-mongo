@@ -4,8 +4,8 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { NavLink } from './styled';
 import useDark from "../../hooks/useDark";
-import { useContext, useEffect } from 'react';
-import { MdDarkMode, MdOutlineDarkMode } from 'react-icons/md';
+import { useContext } from 'react';
+import { MdDarkMode } from 'react-icons/md';
 
 export default function NavBar() {
     const [dark, darkMode] = useDark('dark', 'primary')
@@ -27,6 +27,7 @@ export default function NavBar() {
                         <NavLink to="/aulas">Aulas</NavLink>
                         <NavLink to="/extrato">Extrato</NavLink>
                         <NavLink to="/adicionarPagamento">Adicionar Pagamento</NavLink>
+                        <NavLink to="/api">Paises</NavLink>
                         <button onClick={() => click()}><MdDarkMode/></button>
                     </Nav>
                 </Navbar.Collapse>

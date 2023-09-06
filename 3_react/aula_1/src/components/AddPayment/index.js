@@ -44,8 +44,7 @@ export default function AddPayment() {
             <Form.Group controlId="dob">
                 <Form.Control placeholder="Data da transação" {...bindDate} type="date" name="dob" />
             </Form.Group>
-            <Button type="submit" onClick={() => submit()}>submit</Button>
-            <Button type="button" onClick={() => resetAll()}>reset</Button>
+            <Button style={{ width: "auto", marginTop: "1rem" }} type="submit" onClick={() => submit()}>Submit</Button>
         </Form>
 
     )

@@ -40,6 +40,7 @@ import ReqPage from "./pages/ReqPage";
 import MusicForm from "./components/MusicForm";
 import APIReq from"./components/APIReq";
 import APIItem from './components/APIItem'
+import Map from "./components/Map";
 
 // https://www.npmjs.com/package/classnames
 //#endregion
@@ -72,6 +73,7 @@ function App() {
               <Route path="music" element={<MusicForm />} />
               <Route path="api" element={<APIReq />} />
               <Route path="api/:country" element={<APIItem />} />
+              <Route path="map" element={<Map />} />
             </Routes>
           </DarkModeProvider>
         </StatementProvider>

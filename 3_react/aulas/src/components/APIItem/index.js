@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import Map from '../Map';
 
@@ -26,7 +26,9 @@ export default function ReqItemPage() {
                     <img style={{ maxWidth: "25rem", maxHeight: "25rem" }} variant="top" src={countries.flags.svg} />
                     <img style={{ maxWidth: "25rem", maxHeight: "25rem" }} variant="top" src={countries.coatOfArms.svg} />
                     <p>Capital: {countries.capital}</p>
-                    <Map position = { countries.capitalInfo.latlng } />
+                    <div style={{ width: "100vw" }}>
+                        <Map position={countries.capitalInfo.latlng} />
+                    </div>
                 </>
             )
         })
@@ -37,13 +39,8 @@ export default function ReqItemPage() {
     }, [countries])
 
     return (
-        <div>
-            <section>
-                <Row className='content-products' style={{ margin: 0, padding: 0 }}>
-                    < RenderList />
-                </Row>
-            </section>
-
-        </div>
+        <Container className='content-products col-12' style={{ margin: 0, padding: 0 }}>
+            < RenderList />
+        </Container>
     )
 }

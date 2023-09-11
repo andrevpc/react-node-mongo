@@ -21,6 +21,8 @@ export default function ClassesPage() {
             <NavLink to="/req">Request</NavLink>
             <NavLink to="/music">Music Forms</NavLink>
             <NavLink to="/api">API Paises</NavLink>
+            <p></p>
+            <a>Aula 7:</a>
         </>
     )
 }

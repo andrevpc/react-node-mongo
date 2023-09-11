@@ -4,9 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import './style.css'
 import L from 'leaflet';
 
-export default function Map() {
-  const position = [8.1386, 5.1026];
-  const zoomLevel = 1;
+export default function Map({ position }) {
   const icon = L.icon({ iconUrl: "https://static-00.iconduck.com/assets.00/map-marker-icon-342x512-gd1hf1rz.png",
   iconSize:     [38, 95],
   shadowSize:   [50, 64],
@@ -14,6 +12,7 @@ export default function Map() {
   shadowAnchor: [4, 62],
   popupAnchor:  [-3, -76]
 });
+const zoomLevel = 4.5;
 
   return (
     <MapContainer zoom={zoomLevel} center={position} scrollWheelZoom={true}>

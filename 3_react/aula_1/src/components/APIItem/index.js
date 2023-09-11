@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import Map from '../Map';
 
 export default function ReqItemPage() {
     const { country } = useParams()
@@ -25,6 +26,7 @@ export default function ReqItemPage() {
                     <img style={{ maxWidth: "25rem", maxHeight: "25rem" }} variant="top" src={countries.flags.svg} />
                     <img style={{ maxWidth: "25rem", maxHeight: "25rem" }} variant="top" src={countries.coatOfArms.svg} />
                     <p>Capital: {countries.capital}</p>
+                    <Map position = { countries.capitalInfo.latlng } />
                 </>
             )
         })

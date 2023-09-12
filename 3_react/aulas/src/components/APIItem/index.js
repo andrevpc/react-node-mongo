@@ -7,14 +7,16 @@ import Map from '../Map';
 export default function ReqItemPage() {
     const { country } = useParams()
     const [countries, setCountries] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         handleGet();
     }, []);
 
     async function handleGet() {
-        const res = await axios.get(`https://restcountries.com/v3.1/all`);
-        setCountries(res.data.filter(c => c.name.common === country))
+        await axios.get(`https://restcountries.com/v3.1/all`)
+            .then(res => setCountries(res.data.filter(c => c.name.common === country)))
+            .finally(() => setLoading(false));
     }
 
 
@@ -34,13 +36,22 @@ export default function ReqItemPage() {
         })
     }
 
+    const Sla = () => {
+        if (loading) {
+            return <h2>LOADING...</h2>
+        } else {
+            return <RenderList />
+        }
+    }
+
     useEffect(() => {
         console.log(countries)
+        console.log(loading)
     }, [countries])
 
     return (
         <Container className='content-products col-12' style={{ margin: 0, padding: 0 }}>
-            < RenderList />
+            <Sla />
         </Container>
     )
 }

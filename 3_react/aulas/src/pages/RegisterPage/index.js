@@ -1,4 +1,5 @@
 import Register from "../../components/Register"
+import Styles from "./styles.module.css";
 
 export default function RegisterPage() {
     return (

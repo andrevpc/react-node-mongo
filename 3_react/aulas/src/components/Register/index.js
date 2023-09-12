@@ -28,7 +28,7 @@ export default function Register() {
     }
 
     const submit = async () => {
-        const json = { email, password }
+        const json = { name, email, password }
         const jsonCryptd = CryptoJS.AES.encrypt(JSON.stringify(json), SECRET).toString()
         try {
             var res = await axios.post("http://localhost:8080/api/auth/register", {jsonCryptd})

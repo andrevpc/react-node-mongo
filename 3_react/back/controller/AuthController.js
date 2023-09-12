@@ -10,12 +10,16 @@ class PersonController {
         const decryptd = bytes.toString(CryptoJS.enc.Utf8)
         const json = JSON.parse(decryptd)
         const { name, email, password } = json
-        const passwordCryptd = CryptoJS.AES.encrypt(password, process.env.SECRET_DB).toString()
+
+        const newPassword = CryptoJS.AES.encrypt(password, process.env.SECRET_DB).toString()
+
+        // const salt = await bcrypt.genSalt(12);
+        // const newPassword = await bcrypt.hash(password, salt);
 
         const user = new User({
             name,
             email,
-            password: passwordCryptd
+            password: newPassword
         });
 
         try {
@@ -40,6 +44,8 @@ class PersonController {
 
         if(!user)
             return res.status(422).json({ message: "Usuário/Senha inválido" })
+        
+        // if(!await bcrypt.compare(password, user.password))
         if(CryptoJS.AES.decrypt(user.password, process.env.SECRET) === password)
             return res.status(422).json({ message: "Usuário/Senha inválido" })
 
@@ -54,7 +60,7 @@ class PersonController {
                     expiresIn: '2 days'
                 }
             );
-            return res.status(200).send({ token: token })
+            return res.status(200).send({ token })
         } catch (error) {
             console.log(error)
             return res.status(500).send({ message: "Something failed" })

@@ -1,0 +1,3 @@
+[submodule "social-media-react"]
+	path = social-media-react
+	url = https://github.com/andrevpc/social-media-react.git
